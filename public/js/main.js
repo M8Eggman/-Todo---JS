@@ -53,7 +53,7 @@ newInputButton.addEventListener("click", () => {
     // injection d'élément dans div options
     newDivOptions.append(newButtonModifier, newButtonSupprimer);
 
-    // se lance a chaque click de la div mais ne fait rien tant qu'on a pas cliqué a un endroit précis
+    // se lance a chaque click de la div mais ne fait rien tant qu'on a pas cliqué a des endroits précis
     newDivTache.addEventListener("click", (e) => {
       switch (e.target.tagName) {
         // si click sur input il change la classe selon la checkbox
@@ -64,10 +64,22 @@ newInputButton.addEventListener("click", () => {
             newDivTache.className = "divTache pasFinis";
           }
           break;
-        // sinon effectue des actions selon le bouton pressé
+        // si click sur un button effectue des actions selon le bouton pressé
         case "BUTTON":
           if (e.target.textContent == "Modifier") {
-          } else {
+            // création d'un nouveau input
+            let newInputText = document.createElement("input");
+
+            // changement de ses attributs
+            newInputText.type = "text";
+            newInputText.placeholder = "Modifier tâche";
+
+            // l'inject avant le bouton modifier
+            newButtonModifier.before(newInputText);
+
+            // change le contenu du bouton modifier en confirmer
+            newButtonModifier.textContent = "Confirmer";
+          } else if (e.target.textContent == "Supprimer") {
             // enlève la divTache une fois le bouton supprimer appuyé
             newDivTache.remove();
             count--;
@@ -87,10 +99,24 @@ newInputButton.addEventListener("click", () => {
               inputId.id = `checkbox${count2}`;
               count2++;
             });
+          } else {
+            // récupère le input qui apparait apres avoir cliqué sur modifier
+            let newInputText = newDivTache.querySelectorAll("input")[1];
+
+            // si y'a rien dans l'input ou que des espace il ne se passe rien
+            if (!newInputText.value.trim().length == 0) {
+              // change le contenue de p selon ce qu'il ya dans l'input
+              newPTache.textContent = newInputText.value;
+            }
+
+            // enlève l'input et rechange le "confirmer" en "modifier"
+            newInputText.remove();
+            newButtonModifier.textContent = "Modifier";
           }
           break;
       }
     });
+
     // ajout au compteur d'une tâche
     count++;
     // vide l'input pour créer de nouvelle tâche
