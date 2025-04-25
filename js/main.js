@@ -58,7 +58,14 @@ newInputButton.addEventListener("click", () => {
     newButtonModifier.textContent = "Modifier";
     newButtonSupprimer.textContent = "Supprimer";
 
-
+    // injection d'élément dans section to do list
+    sectionToDoList.append(newDivTache);
+    // injection d'élément dans div tache
+    newDivTache.append(newDivCheckbox, newPTache, newDivOptions);
+    // injection d'élément dans div checkbox
+    newDivCheckbox.append(checkboxLabel, checkboxInput);
+    // injection d'élément dans div options
+    newDivOptions.append(newButtonModifier, newButtonSupprimer);
 
     // ajout au compteur d'une tâche
     count++;
