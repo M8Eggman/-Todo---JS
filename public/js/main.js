@@ -33,7 +33,7 @@ newInputButton.addEventListener("click", () => {
     let newButtonSupprimer = document.createElement("button");
 
     // changement du contenu ou ajout d'attribut des élément créer précedemment
-    newDivTache.className = "divTache pasFinis";
+    newDivTache.className = "divTache pasFinis d-flex";
     newDivCheckbox.className = "divCheckbox";
     newDivOptions.className = "divOptions";
     checkboxLabel.textContent = "Done";
@@ -59,9 +59,11 @@ newInputButton.addEventListener("click", () => {
         // si click sur input il change la classe selon la checkbox
         case "INPUT":
           if (checkboxInput.checked) {
-            newDivTache.className = "divTache finis";
+            newDivTache.classList.remove("pasFinis");
+            newDivTache.classList.add("finis");
           } else {
-            newDivTache.className = "divTache pasFinis";
+            newDivTache.classList.remove("finis");
+            newDivTache.classList.add("pasFinis");
           }
           break;
         // si click sur un button effectue des actions selon le bouton pressé
@@ -130,29 +132,34 @@ divButton.addEventListener("click", (e) => {
   let allTache = sectionToDoList.querySelectorAll(".divTache");
 
   switch (e.target.textContent) {
-    // met toute les div tache en display block
+    // met toute les div tache en display flex
     case "All":
       allTache.forEach((element) => {
-        element.style.display = "block";
+        element.classList.remove("d-none");
+        element.classList.add("d-flex");
       });
       break;
-    // met que les div tache avec la class fini en display block et les autre en none
+    // met que les div tache avec la class fini en display flex et les autre en none
     case "Fini":
       allTache.forEach((element) => {
-        if (element.classList[1] == "finis") {
-          element.style.display = "block";
+        if (element.classList.contains("finis")) {
+          element.classList.remove("d-none");
+          element.classList.add("d-flex");
         } else {
-          element.style.display = "none";
+          element.classList.remove("d-flex");
+          element.classList.add("d-none");
         }
       });
       break;
     // l'inverse de fini
     case "Pas Fini":
       allTache.forEach((element) => {
-        if (element.classList[1] == "pasFinis") {
-          element.style.display = "block";
+        if (element.classList.contains("pasFinis")) {
+          element.classList.remove("d-none");
+          element.classList.add("d-flex");
         } else {
-          element.style.display = "none";
+          element.classList.remove("d-flex");
+          element.classList.add("d-none");
         }
       });
       break;
