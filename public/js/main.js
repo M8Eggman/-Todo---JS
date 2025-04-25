@@ -34,6 +34,7 @@ newInputButton.addEventListener("click", () => {
 
     // changement du contenu ou ajout d'attribut des élément créer précedemment
     newDivTache.className = "divTache pasFinis d-flex";
+    newDivTache.style.backgroundColor = "rgb(150, 60, 100)";
     newDivCheckbox.className = "divCheckbox";
     newDivOptions.className = "divOptions";
     checkboxLabel.textContent = "Done";
@@ -61,9 +62,11 @@ newInputButton.addEventListener("click", () => {
           if (checkboxInput.checked) {
             newDivTache.classList.remove("pasFinis");
             newDivTache.classList.add("finis");
+            newDivTache.style.backgroundColor = " #42a14b";
           } else {
             newDivTache.classList.remove("finis");
             newDivTache.classList.add("pasFinis");
+            newDivTache.style.backgroundColor = "rgb(150, 60, 100)";
           }
           break;
         // si click sur un button effectue des actions selon le bouton pressé

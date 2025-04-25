@@ -1,9 +1,9 @@
 @keyframes changementCouleur {
   from {
-    background-color: #1d2f6f;
+    background-color: #0b353d;
   }
   to {
-    background-color: #540b0e;
+    background-color: #55242f;
   }
 }
 body {
@@ -54,7 +54,6 @@ h1 {
   font-size: 20px;
 }
 .divTache {
-  background-color: #42a14b;
   min-height: 150px;
   border-radius: 10px;
   padding-inline: 20px;
@@ -63,6 +62,7 @@ h1 {
   gap: 20px;
   align-items: center;
   margin-bottom: 10px;
+  transition: 250ms ease;
 }
 .divCheckbox input {
   scale: 300%;
@@ -86,12 +86,16 @@ h1 {
   width: 150px;
   border-radius: 10px;
 }
-p {
+.divTache p {
+  width: 50vw;
   font-size: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
-.d-none{
-    display: none;
+.d-none {
+  display: none;
 }
-.d-flex{
-    display: flex;
+.d-flex {
+  display: flex;
 }
