@@ -17,18 +17,17 @@ divButton.id = "divButton";
 
 // injection d'élément dans mon Body
 body.append(header, sectionControle, sectionToDoList);
-
 // injection d'élément dans section controle
 sectionControle.append(divInput, divButton);
-
 // injection d'élément dans mon header
 header.append(newH1);
-
 // injection d'élément dans ma div input
 divInput.append(newInputText, newInputButton);
-
 // injection d'élément dans ma div button
 divButton.append(buttonAll, buttonFini, buttonPasFini);
+
+// création d'un compteur de tâche créé
+let count = 1;
 
 // mes event listener
 // création de nouvelle tache au click du input add
@@ -43,10 +42,27 @@ newInputButton.addEventListener("click", () => {
     let newDivOptions = document.createElement("div");
     let checkboxLabel = document.createElement("label");
     let checkboxInput = document.createElement("input");
-    let newP = document.createElement("p");
+    let newPTache = document.createElement("p");
     let newButtonModifier = document.createElement("button");
     let newButtonSupprimer = document.createElement("button");
 
- 
+    // changement du contenu ou ajout d'attribut des élément créer dans précedemment
+    newDivTache.className = "divTache";
+    newDivCheckbox.className = "divCheckbox";
+    newDivOptions.className = "divOptions";
+    checkboxLabel.textContent = "Done";
+    checkboxLabel.htmlFor = `checkbox${count}`;
+    checkboxInput.type = "checkbox";
+    checkboxInput.id = `checkbox${count}`;
+    newPTache.textContent = newInputText.value;
+    newButtonModifier.textContent = "Modifier";
+    newButtonSupprimer.textContent = "Supprimer";
+
+
+
+    // ajout au compteur d'une tâche
+    count++;
+    // vide l'input pour créer de nouvelle tâche
+    newInputText.value = "";
   }
 });
