@@ -123,3 +123,38 @@ newInputButton.addEventListener("click", () => {
     newInputText.value = "";
   }
 });
+
+// se lance a chaque click de la div mais ne fait rien tant qu'on a pas cliqué a des endroits précis
+divButton.addEventListener("click", (e) => {
+  // récupère toute les div tache
+  let allTache = sectionToDoList.querySelectorAll(".divTache");
+
+  switch (e.target.textContent) {
+    // met toute les div tache en display block
+    case "All":
+      allTache.forEach((element) => {
+        element.style.display = "block";
+      });
+      break;
+    // met que les div tache avec la class fini en display block et les autre en none
+    case "Fini":
+      allTache.forEach((element) => {
+        if (element.classList[1] == "finis") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      });
+      break;
+    // l'inverse de fini
+    case "Pas Fini":
+      allTache.forEach((element) => {
+        if (element.classList[1] == "pasFinis") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      });
+      break;
+  }
+});
