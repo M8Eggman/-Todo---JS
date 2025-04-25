@@ -1,20 +1,6 @@
 // mes imports
 import { body, newH1, newInputText, newInputButton, buttonAll, buttonFini, buttonPasFini, divInput, divButton, header, sectionControle, sectionToDoList } from "./modules/newElements.js";
 
-// changement du contenu ou ajout d'attribut des élément créer dans newElements
-newH1.textContent = "To Do List";
-newInputText.type = "text";
-newInputText.placeholder = "Tâche";
-newInputButton.type = "button";
-newInputButton.value = "Add";
-buttonAll.textContent = "All";
-buttonFini.textContent = "Fini";
-buttonPasFini.textContent = "Pas Fini";
-sectionControle.id = "sectionControle";
-sectionToDoList.id = "sectionToDoList";
-divInput.id = "divInput";
-divButton.id = "divButton";
-
 // injection d'élément dans mon Body
 body.append(header, sectionControle, sectionToDoList);
 // injection d'élément dans section controle
@@ -47,7 +33,7 @@ newInputButton.addEventListener("click", () => {
     let newButtonSupprimer = document.createElement("button");
 
     // changement du contenu ou ajout d'attribut des élément créer dans précedemment
-    newDivTache.className = "divTache";
+    newDivTache.className = "divTache pasFinis";
     newDivCheckbox.className = "divCheckbox";
     newDivOptions.className = "divOptions";
     checkboxLabel.textContent = "Done";
@@ -67,6 +53,7 @@ newInputButton.addEventListener("click", () => {
     // injection d'élément dans div options
     newDivOptions.append(newButtonModifier, newButtonSupprimer);
 
+    
     // ajout au compteur d'une tâche
     count++;
     // vide l'input pour créer de nouvelle tâche

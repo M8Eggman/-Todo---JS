@@ -13,3 +13,17 @@ export let sectionControle = document.createElement("section");
 export let sectionToDoList = document.createElement("section");
 export let divInput = document.createElement("div");
 export let divButton = document.createElement("div");
+
+// changement du contenu ou ajout d'attribut des élément créer dans newElements
+newH1.textContent = "To Do List";
+newInputText.type = "text";
+newInputText.placeholder = "Tâche";
+newInputButton.type = "button";
+newInputButton.value = "Add";
+buttonAll.textContent = "All";
+buttonFini.textContent = "Fini";
+buttonPasFini.textContent = "Pas Fini";
+sectionControle.id = "sectionControle";
+sectionToDoList.id = "sectionToDoList";
+divInput.id = "divInput";
+divButton.id = "divButton";
