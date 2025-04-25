@@ -1,0 +1,91 @@
+@keyframes changementCouleur {
+  from {
+    background-color: #1d2f6f;
+  }
+  to {
+    background-color: #540b0e;
+  }
+}
+body {
+  margin: 0;
+  padding-inline: 15vw;
+  font-family: Arial, Helvetica, sans-serif;
+  animation: changementCouleur 5s infinite alternate ease-in;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+}
+#divInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 15vw;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+#divInput input {
+  box-sizing: border-box;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+#divInput input:first-of-type {
+  flex: 5;
+}
+#divInput input:last-of-type {
+  flex: 1;
+  background-color: #33a370;
+}
+#divButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 17vw;
+  gap: 50px;
+  margin-bottom: 75px;
+}
+#divButton button {
+  flex: 1;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.divTache {
+  background-color: #bc3014;
+  min-height: 150px;
+  border-radius: 10px;
+  padding-inline: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.divCheckbox input {
+    scale: 300%;
+}
+.divCheckbox label {
+    display: none;
+}
+.divOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.divOptions button {
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+}
+.divOptions input {
+    box-sizing: border-box;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+}
+p {
+    font-size: 20px;
+}
